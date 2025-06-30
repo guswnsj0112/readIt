@@ -1,0 +1,42 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.navLogo{
+	margin-right: 320px;
+}
+
+.Nav {
+	display:flex;
+	height: 90px;
+	margin: 0 200px;
+	margin-top: 10px;
+	border-bottom: 1px solid gray;
+	justify-content: center;
+	width: 1400px;
+
+}
+
+.menu{
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+	gap: 200px;
+    margin-left: 200px;
+}
+
+li {
+	list-style-type: none;
+    gap: 200px;
+	font-weight: bold;
+}
+
+li > p {
+	display: inline-block;
+	font-weight: 600;
+	color: #999999;
+	font-size: 11px;
+	position: relative;
+    bottom: 7px;
+}
