@@ -2,8 +2,7 @@
 
 > 책과 감성의 순간, 나만의 독서 여정을 소중히 남기기 위해 만든 프로젝트
 
-![readit-preview](<img width="476" height="777" alt="landingpage" src="https://github.com/user-attachments/assets/b4b6c295-2b09-4069-adc5-5f6ba8708007" />
-) 
+!(<img width="476" height="777" alt="landingpage" src="https://github.com/user-attachments/assets/b4b6c295-2b09-4069-adc5-5f6ba8708007" />) 
 
 ---
 
