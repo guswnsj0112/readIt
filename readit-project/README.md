@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# 📚 ReadIt - 감성 독서 기록 웹서비스
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 책과 감성의 순간, 나만의 독서 여정을 소중히 남기기 위해 만든 프로젝트
 
-## Available Scripts
+![readit-preview](./src/images/rogo_with_text.png) <!-- 실제 이미지 경로로 수정해주세요 -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧩 소개
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**ReadIt**은 사용자가 읽은 책에 대한 감정과 감상을 자유롭게 기록할 수 있도록 설계된  
+감성 중심의 독서 기록 웹서비스입니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- “**경쟁하지 말고, 독점하라**”는 모토 아래  
+  나만의 독서 흐름을 소중히 저장합니다.
 
-### `npm test`
+- 독서 후 감정 기반 기록을 통해  
+  **단순한 독서 기록이 아닌, 감정의 기록**을 추구합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🎨 주요 기능 (1차 MVP 기준)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| 기능 | 설명 |
+|------|------|
+| ✅ 감성 랜딩 페이지 | 직관적이며 감성적인 UX 구성 |
+| ✅ 책 리스트 카드 출력 
+| 
+| 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ 기술 스택
 
-### `npm run eject`
+- **Front-End**: React,
+- **배포**: Netlify  
+- **기획 및 디자인**: Framer, Notion 기반 플로우 정의
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🌱 향후 개발 계획
+- [ ] 반응형 카드 UI, 최근 읽은 책 나열
+- [ ] 감상문 작성 기능 
+- [ ] 반응형 디자인 | 모바일 및 태블릿 대응 (Tailwind 적용) 
+- [ ] Firebase 또는 Express/MongoDB를 통한 감상문 백엔드 저장
+- [ ] 유저 로그인 기능
+- [ ] 감정 태그 기반 책 추천 기능
+- [ ] 나만의 책장/감정 히스토리 페이지
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📂 프로젝트 구조 (일부 생략)
+readIt/
+├── public/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── styles/
+│ └── App.jsx
+├── package.json
+└── README.md
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

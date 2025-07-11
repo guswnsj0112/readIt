@@ -42,9 +42,11 @@ function App() {
 			  <p>감성 한줄평으로 보는 나의 서재</p>
 			  <BookList />
 			  <div className="bottom">
-				<h2>지금, 감동을 기록하세요.</h2>
-			  	<p>책의 여운, 감성 그대로 남기기.</p>
-			  	<div className="btn">독서 기록 시작하기</div>
+				<div className="container">
+					<h2>지금, 감동을 기록하세요.</h2>
+			  		<p>책의 여운, 감성 그대로 남기기.</p>
+			  		<div className="btn">독서 기록 시작하기</div>
+				</div>
 			  </div>
 		  </main>
     </div>

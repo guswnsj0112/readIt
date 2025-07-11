@@ -148,13 +148,9 @@ h3 {
 
 
 .bottom{
-	display: flex;
 	margin-top: 100px;
     border-top: 1px solid #999999;
     width: 80%;
-    flex-direction: column;
-    text-align: center;
-	align-items: center;
 }
 
 .bottom > p {
@@ -164,12 +160,19 @@ h3 {
 		font-weight: 500;
 		color: #999999;
 }
-.bottom > .btn {
+.bottom > .container > .btn {
 	background-color: #000000;
     border-radius: 100px;
     width: 132px;
     height: 30px;
     color: white;
     font-size: 14px;
-	
+	padding: 5px 0;
+}
+
+.bottom > .container{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
