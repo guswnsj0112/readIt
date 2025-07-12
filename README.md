@@ -4,6 +4,8 @@
 
 <img width="476" height="777" alt="landingpage" src="https://github.com/user-attachments/assets/b4b6c295-2b09-4069-adc5-5f6ba8708007" />
 
+- https://readit-landing.netlify.app/
+  
 ---
 
 ## 🧩 소개
