@@ -1,22 +1,22 @@
 import nav_logo from '../images/nav_logo.png';
 import './nav.css';
-
+import { Link } from 'react-router-dom';
 function Nav() {
   return (
     <nav className="Nav">
       <img src={nav_logo} alt="로고 사진" className="navLogo" />
       <ul className="menu">
         <li>
-          <span>소개</span>
-          <p>01</p>
+			<Link to="/"> <span> 소개 <sup>01</sup> </span> </Link>
         </li>
         <li>
-          <span>책장</span>
-          <p>02</p>
+			<Link to="/bookcase">
+          		<span> 책장 <sup>02</sup> </span>
+			</Link>
         </li>
         <li>
-          <span>문의</span>
-          <p>03</p>
+          <span> 문의 <sup>03</sup> </span>
+          
         </li>
       </ul>
     </nav>
