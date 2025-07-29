@@ -1,59 +1,85 @@
-// readit/backend/server.js (수정)
-// 기존: require('dotenv').config();
-import 'dotenv/config'; // dotenv를 ESM 방식으로 불러오는 방법
+// server.js
 
-// 기존: const express = require('express');
-// 기존: const cors = require('cors');
-// 기존: const fetch = require('node-fetch');
-import express from 'express';
-import cors from 'cors';
-import fetch from 'node-fetch'; // node-fetch도 import로 변경
+// dotenv를 ES 모듈 방식으로 불러오기
+import "dotenv/config"; // 이렇게 사용하면 .env 파일이 자동으로 로드됩니다.
 
-const app = express();
-const port = process.env.PORT || 5000;
+import { createServer } from "http";
+import { request } from "https";
+import { URL } from "url";
 
-app.use(cors({
-    origin: 'http://localhost:5173' // 개발 환경 CORS 설정
-    // 또는 필요에 따라 구름IDE의 실제 URL을 여기에 추가
-    // 예: origin: ['http://localhost:5173', 'https://readit-vnygo.run.goorm.io']
-}));
+const PORT = process.env.PORT || 5000;
+const NAVER_CLIENT_ID = process.env.NAVER_CLIENT_ID;
+const NAVER_CLIENT_SECRET = process.env.NAVER_CLIENT_SECRET;
 
-app.use(express.json());
+const server = createServer((req, res) => {
+  // CORS 설정 (개발 환경에서만 사용 권장, 실제 서비스에서는 더 엄격하게 설정)
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-app.get('/api/naver-bestsellers', async (req, res) => {
-    const query = req.query.q || '';
-    const display = req.query.display || 20;
-    const sort = req.query.sort || 'sales';
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
 
-    const naverApiUrl = `https://openapi.naver.com/v1/search/book.json?query=${encodeURIComponent(query)}&display=${display}&sort=${sort}`;
+  const requestUrl = new URL(req.url, `http://localhost:${PORT}`);
+  const pathname = requestUrl.pathname;
+  const queryParams = requestUrl.searchParams;
 
-    try {
-        const response = await fetch(naverApiUrl, {
-            method: 'GET',
-            headers: {
-                'X-Naver-Client-Id': process.env.NAVER_CLIENT_ID,
-                'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET,
-                'Content-Type': 'application/json'
-            },
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('네이버 API 에러 응답:', errorData);
-            return res.status(response.status).json({
-                error: 'Naver API call failed',
-                message: errorData.errorMessage || 'Unknown error from Naver API'
-            });
-        }
-
-        const data = await response.json();
-        res.json(data);
-    } catch (error) {
-        console.error('API 프록시 서버 에러:', error);
-        res.status(500).json({ error: 'Failed to fetch bestsellers from Naver API', message: error.message });
+  if (pathname === "/api/search-books" && req.method === "GET") {
+    const query = queryParams.get("query");
+    if (!query) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "Query parameter is required." }));
+      return;
     }
+
+    const naverApiOptions = {
+      hostname: "openapi.naver.com",
+      port: 443,
+      path: encodeURI(`/v1/search/book.json?query=${query}`),
+      method: "GET",
+      headers: {
+        "X-Naver-Client-Id": NAVER_CLIENT_ID,
+        "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
+      },
+    };
+
+    let naverApiData = "";
+    const naverReq = request(naverApiOptions, (naverRes) => {
+      naverRes.on("data", (chunk) => {
+        naverApiData += chunk;
+      });
+
+      naverRes.on("end", () => {
+        try {
+          const parsedData = JSON.parse(naverApiData);
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify(parsedData));
+        } catch (e) {
+          console.error("Error parsing Naver API response:", e);
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({ error: "Failed to parse Naver API response." })
+          );
+        }
+      });
+    });
+
+    naverReq.on("error", (e) => {
+      console.error("Error calling Naver API:", e);
+      res.writeHead(500, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "Failed to connect to Naver API." }));
+    });
+
+    naverReq.end();
+  } else {
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: "Not Found" }));
+  }
 });
 
-app.listen(port, () => {
-    console.log(`Node.js Express 서버가 http://localhost:${port} 에서 실행 중입니다.`);
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

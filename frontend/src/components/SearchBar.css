@@ -57,6 +57,6 @@
 }
 
 .search-input:focus {
-  border: 2px solid #007bff;
+  /* border: 2px solid #007bff; 렉 이슈로 잠시 보류*/
   box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
 }
