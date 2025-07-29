@@ -1,9 +1,11 @@
-import React from 'react';
-import './BookCard.css';
+import React from "react";
+import "./BookCard.css";
 
 function BookCard({ book }) {
   const { title, authors, imageLinks, infoLink } = book.volumeInfo;
-  const thumbnail = imageLinks?.thumbnail || 'https://via.placeholder.com/128x193?text=No+Image';
+  const thumbnail =
+    imageLinks?.thumbnail ||
+    "https://via.placeholder.com/128x193?text=No+Image";
 
   return (
     <div className="book-card">
@@ -12,7 +14,7 @@ function BookCard({ book }) {
       </a>
       <div className="book-info">
         <h4>{title}</h4>
-        <p>{authors?.join(', ')}</p>
+        <p>{authors?.join(", ")}</p>
         <p className="book-source">출처: Google Books</p>
       </div>
     </div>
