@@ -10,7 +10,7 @@ export default defineConfig({
     strictPort: true,
     hmr: {
       clientPort: 3000,
-      host: "readit-vnygo.run.goorm.io",
+      host: "readit-krggx.run.goorm.io",
     },
     proxy: {
       "/api": {
