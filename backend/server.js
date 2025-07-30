@@ -13,7 +13,7 @@ const NAVER_CLIENT_SECRET = process.env.NAVER_CLIENT_SECRET;
 
 const server = createServer((req, res) => {
   // CORS 설정 (개발 환경에서만 사용 권장, 실제 서비스에서는 더 엄격하게 설정)
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
