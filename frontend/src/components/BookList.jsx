@@ -18,7 +18,9 @@ function App() {
       // 백엔드 서버의 주소와 포트에 맞게 변경해주세요.
       // 개발 중이라면 'http://localhost:5000'
       const response = await fetch(
-        `/api/search-books?query=${encodeURIComponent(searchTerm)}`
+        `https://readit-backend-u789.onrender.com/api/search-books?query=${encodeURIComponent(
+          searchTerm
+        )}`
       );
 
       if (!response.ok) {
