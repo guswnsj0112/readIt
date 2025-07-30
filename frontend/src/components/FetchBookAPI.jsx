@@ -1,8 +1,6 @@
-// src/App.jsx (또는 검색 기능을 위한 새로운 컴포넌트)
-
 import React, { useState } from "react";
 
-function App() {
+export default function FetchBookAPI() {
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -88,4 +86,4 @@ function App() {
   );
 }
 
-export default App;
+ 

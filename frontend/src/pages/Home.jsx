@@ -1,6 +1,6 @@
 import Nav from "../components/nav.jsx";
 import main_image from "../images/main_image.png";
-import BookList from "../components/BookList.jsx";
+import FetchBookAPI from "../components/FetchBookAPI.jsx";
 export default function Home() {
   return (
     <div className="Home">
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
         <h3>최근 읽은 책들</h3>
         <p>감성 한줄평으로 보는 나의 서재</p>
-        <BookList />
+        <FetchBookAPI />
         <div className="bottom">
           <div className="container">
             <h2>지금, 감동을 기록하세요.</h2>
