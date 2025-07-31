@@ -1,24 +1,18 @@
 import React from "react";
 import "./BookCard.css";
 
-function BookCard({ book }) {
-  const { title, authors, imageLinks, infoLink } = book.volumeInfo;
-  const thumbnail =
-    imageLinks?.thumbnail ||
-    "https://via.placeholder.com/128x193?text=No+Image";
+export default function BookCard({ book_data }) {
+  const { title, author, img_src, writeDay, paragraph} = book_data
+  const thumbnail = img_src || "/images/rogo_with_text.png";
 
   return (
-    <div className="book-card">
-      <a href={infoLink} target="_blank" rel="noopener noreferrer">
-        <img src={thumbnail} alt={`${title} 표지`} className="book-thumbnail" />
-      </a>
-      <div className="book-info">
-        <h4>{title}</h4>
-        <p>{authors?.join(", ")}</p>
-        <p className="book-source">출처: Google Books</p>
-      </div>
+    <div className="BookCard">
+        <img src={thumbnail} alt={`${title} 표지`} className="thumbnail" />
+		<h4 className="title">{title}</h4>
+		<p className="author">- {author}</p>
+		<p className="paragraph">{paragraph}</p>
+		<p className="writeDay">작성일: {writeDay}</p>
     </div>
   );
 }
 
-export default BookCard;

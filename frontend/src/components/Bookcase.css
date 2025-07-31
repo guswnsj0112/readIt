@@ -1,0 +1,8 @@
+.BookGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열로 설정 */
+  max-width: 1200px;
+  margin: 2rem auto;
+  gap: 0;
+  justify-items: center;
+}
