@@ -42,10 +42,15 @@ export default function Home() {
           <div className="container">
             <h2>지금, 감동을 기록하세요.</h2>
             <p>책의 여운, 감성 그대로 남기기.</p>
-            <div className="btn">독서 기록 시작하기</div>
+            <div className="btn">👉 책과 나의 순간, 기록하기</div>
           </div>
         </div>
       </main>
+	  <footer>
+		  <p>
+  			© 2025 ReadIt. 책과 감성의 순간을 함께합니다.
+		  </p>
+	  </footer>
     </div>
   );
 }

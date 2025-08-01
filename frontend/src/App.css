@@ -167,13 +167,20 @@ h3 {
 		color: var(--gray-font-color);
 }
 .bottom > .container > .btn {
-	background-color: #000000;
-    border-radius: 100px;
-    width: 132px;
-    height: 30px;
-    color: white;
-    font-size: 14px;
-	padding: 5px 0;
+	background-color: #fcefe9;
+ 	color: #5a4231;
+ 	font-size: 16px;
+ 	font-family: "Nanum Myeongjo", serif;
+ 	padding: 12px 24px;
+ 	border: none;
+ 	border-radius: 24px;
+ 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+ 	transition: 0.3s ease-in-out;
+}
+
+.bottom > .container > .btn:hover{
+	background-color: #f5e1d5;
+  transform: translateY(-2px);
 }
 
 .bottom > .container{
@@ -181,4 +188,11 @@ h3 {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+footer > p {
+	text-align: center; 
+	font-size: 13px; 
+	color: #999; 
+	margin: 4rem 0 2rem;
 }
