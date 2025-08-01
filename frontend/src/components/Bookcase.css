@@ -6,3 +6,18 @@
   gap: 0;
   justify-items: center;
 }
+
+
+.noBook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.noBook img {
+  max-width: 800px;
+  max-height: 600px;
+  object-fit: cover;
+}

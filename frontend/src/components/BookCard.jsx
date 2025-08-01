@@ -2,8 +2,8 @@ import React from "react";
 import "./BookCard.css";
 
 export default function BookCard({ book_data }) {
-  const { title, author, img_src, writeDay, paragraph} = book_data
-  const thumbnail = img_src || "/images/rogo_with_text.png";
+  const { title, author, img_src, writeDay, paragraph} = book_data;
+  const thumbnail = img_src || '/images/rogo_with_text.png';
 
   return (
     <div className="BookCard">

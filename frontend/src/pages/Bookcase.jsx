@@ -6,22 +6,44 @@ import "../components/Bookcase.css";
 import Nav from "../components/nav";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
+
 export default function Bookcase() {
+  const [books, setBooks] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
+  const [bookHere, setBookHere] = useState(true);
   useEffect(() => {
-    addDummies(); // 더미 데이터를 로컬 스토리지에 추가/병합
-    setBooks(fetchLocalStorageBooks());
+    addDummies();
+    const initialBooks = fetchLocalStorageBooks();
+    setBooks(initialBooks);
+    setSearchResult(initialBooks); // 초기에는 전체 책을 보여주도록 설정
   }, []);
-  const [books, setBooks] = useState(fetchLocalStorageBooks);
+  
+  const searchFunction = (arr, searchTerm) => {
+    // 검색어가 비어있을 때 
+    if (searchTerm === "" ) {
+      setSearchResult(books); // 전체 책 목록으로 되돌림
+    }
+	else {
+      setSearchResult(arr);
+    }
+  };
+  
   return (
     <div className="Bookcase">
-	   <Nav />
-	   <h1 className="sr-only">읽잇 ReadIt - 내 책장</h1>
-      <SearchBar booksData={books} />
-	  <div className="BookGrid">{books.map((book) => {
-			  return (
-				 <BookCard key={book.id} book_data={book} />
-			  )})}
-	  </div>
+       <Nav />
+       <h1 className="sr-only">읽잇 ReadIt - 내 책장</h1>
+      <SearchBar booksData={books} searchHandle={searchFunction}/>
+      {searchResult.length > 0 ? (
+        <div className="BookGrid">
+          {searchResult.map((book) => (
+            <BookCard key={book.id} book_data={book} />
+          ))}
+        </div>
+      ) : (
+        <div className="noBook">
+          <img src="/images/noBook.png" />
+        </div>
+      )}
     </div>
   );
 }
