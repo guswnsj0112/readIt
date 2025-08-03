@@ -1,5 +1,5 @@
 // localStorage.js
-
+import { v4 as uuidv4 } from 'uuid';
 export function fetchLocalStorageBooks() {
   const data = localStorage.getItem("books");
   if (!data) return [];
@@ -7,7 +7,7 @@ export function fetchLocalStorageBooks() {
     const parsed = JSON.parse(data);
     if (Array.isArray(parsed)) {
       return parsed.filter(book =>
-        book.id && book.author && book.writeDay && book.paragraph
+        book.id && book.author && book.writeDay && book.review && book.comment
       );
     }
     return [];
@@ -21,82 +21,92 @@ export function fetchLocalStorageBooks() {
 //  add dummies arry in localStorage
 const dummies = [
   {
-    id: 1,
+    id: uuidv4(),
 	title: "엄청 엄청 긴 텍스트 테스 중입니다 엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다",
     author: "저자123123121",
-    writeDay: "2025-07-31", 
-    paragraph: "엄청 엄청 긴 텍스트 테스 중입니다 엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "엄청 엄청 긴 텍스트 테스 중입니다 엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다엄청 엄청 긴 텍스트 테스 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 2,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+    review: "테스트 중입니다",
+	writeDay: "2025-07-31",
+  },
+	{
+    id: uuidv4(),
+    author: "tester",
+	title: "book_name",
+    review: "짧지만 깊게 남는 여운. 읽고 난 후 마음이 한결 따뜻해지는 책이었다. 일상에 지친 이들에게 조용한 위로가 된다. 한 번쯤 모든 이가 읽어보면 좋겠다는 생각이 절로 든다.",
+    comment: "음 책이 재밌네요",
+	img_src: "/images/rogo_with_text.png",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 3,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 4,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 5,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 6,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 7,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
   {
-    id: 8,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
-  },
-  {
-    id: 9,
-    author: "tester",
-	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },{
-    id: 10,
+    id: uuidv4(),
     author: "tester",
 	title: "book_name",
-    writeDay: "2025-07-31",
-    paragraph: "테스트 중입니다",
-    img_src: "/images/rogo_with_text.png",
+	img_src: "/images/rogo_with_text.png",
+    review: "테스트 중입니다",
+	comment: "음 책이 재밌네요",
+  	writeDay: "2025-07-31",
   },
 ];
 
