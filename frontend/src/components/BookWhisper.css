@@ -1,0 +1,74 @@
+.BookWhisper{
+	max-width: 1200px;
+	margin: 0 auto;
+	
+}
+.bookDetail{
+	text-align: center;
+}
+.top h1 {
+	margin-bottom: 5px;
+}
+.top p {
+	margin-top: 0;
+	color: #7e6d61;
+}
+
+.BookWhisper-top h1{
+	font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.BookWhisper-top p{
+	margin: 0;
+	font-size: 15px;
+	color: var(--sub-color1);
+}
+
+
+.bookDetail img {
+	width: 600px;
+	height: 500px;
+	object-fit: cover;
+	margin: 25px 0;
+}
+
+.BookWhisper-bottom{
+	width: 600px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.review div, .comment div {
+	font-weight: 550;
+}
+
+.review p ,.comment p {
+	margin-top: 5px;
+	color: var(--sub-color2);
+}
+
+.icon-buttons {
+	 text-align: right;
+}
+
+.icon-buttons button {
+  background-color: #f3f0e8;
+  border: none;
+  border-radius: 12px;
+  margin-left: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-buttons button:hover {
+  background-color: #e1d7c3;
+}
+
+.BookWhisper-bottom .writeDay {
+	color: var(--sub-color1);
+    font-size: 15px;
+    text-align: center;
+    margin: 50px 0;
+}
