@@ -43,3 +43,53 @@ input[type="text"]:focus {
   box-shadow: inset 0 0 0 2px var(--main-color);
   background-color: #fffef8;
 }
+
+.changeImg {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  margin: 25px auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* 이미지 스타일 그대로 유지 */
+.changeImg img {
+  transition: filter 0.3s ease;
+
+}
+
+/* 호버 시 이미지 어둡게 */
+.changeImg:hover img {
+  filter: brightness(60%);
+}
+
+/* + 버튼을 이미지 정중앙에 배치 */
+.changeImg button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--main-color);
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* 버튼 호버 시 색상 반전 */
+.changeImg:hover button {
+  background-color: var(--main-color);
+  color: #fff;
+  transform: translate(-50%, -50%) scale(1.05);
+}
