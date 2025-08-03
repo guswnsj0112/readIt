@@ -40,7 +40,6 @@ export default function EditBookWhisper() {
 	const handleCommentChange = (e) => {
 		setBookComment(e.target.value);
 	}
-	
 	const EditBook= () => {
 		const confirmDelete = window.confirm("작성일은 오늘로 변경됩니다. 수정하시겠습니까?");
   	  	if (!confirmDelete) return;
@@ -48,7 +47,6 @@ export default function EditBookWhisper() {
 		const booksArray = JSON.parse(storedBooks);
 		const foundBook = booksArray.find(item => item.id === id);
 		const BookIdx = booksArray.findIndex(item => item.id === id);
-		console.log(book);
 		const updateBook = {
 				id: id, 
 				title: book.title,
@@ -64,6 +62,7 @@ export default function EditBookWhisper() {
 		navigate(-1);
 		console.log(book);
 	}
+
 	return (
 		<div className="EditBookWhisper">
 			<Nav />
@@ -73,11 +72,15 @@ export default function EditBookWhisper() {
 						<h1>{book.title}</h1>
 						<p>- {book.author}</p>
 					</div>
-					<img 
+					<div className="changeImg"> 
+						<img 
 						src={bookImg ? bookImg :  "/images/noBookImg.png"} 
 						alt={bookImg ? book.title : "책 사진이 없어요"} 
 						onError={(e) => e.currentTarget.src = "/images/noBookImg.png"}
 						/>
+						<button className="addBtn" > + </button>
+					</div>
+					
 					<div className="BookWhisper-bottom">
 						<div className="review">
 							<label htmlFor="reviewInput">독서 후기</label>
