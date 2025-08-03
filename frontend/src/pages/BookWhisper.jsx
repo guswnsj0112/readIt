@@ -27,18 +27,17 @@ export default function BookWhisper() {
 	}, [id]);
 	const handleDelete = (id) => {
 	  const confirmDelete = window.confirm("삭제하면 복구 할 수 없습니다");
-  	  if (!confirmDelete) return; // 취소를 눌렀다면 아무것도 하지 않음
+  	  if (!confirmDelete) return;
 	  const storedBooks = localStorage.getItem('books');
 	
 	  const booksArray = JSON.parse(storedBooks);
 
 	  // 해당 책을 삭제한 새로운 배열 만들기
-	  const updatedBooks = booksArray.filter(item => item.id !== parseInt(id));
+	  const updatedBooks = booksArray.filter(item => item.id !== id);
 
-	  // 업데이트된 배열을 로컬 스토리지에 저장
 	  localStorage.setItem('books', JSON.stringify(updatedBooks));
 
-	  // 삭제 후 book 상태를 null로 설정하여 화면에서 제거
+
 	  setBook(null);
 	  navigate('/bookcase');
 	};
