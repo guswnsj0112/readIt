@@ -14,7 +14,7 @@
   transform: translateY(-4px);
 }
 
-.thumbnail {
+.BookCard .thumbnail {
     width: 100%;
     height: 200px;
     border-radius: 4px;
@@ -22,7 +22,13 @@
     border: solid 1px;
 }
 
-.title {
+.BookCard .title-author{
+	display:flex;
+	justify-content: space-between;
+}
+
+.BookCard .title {
+	width: 200px;
 	font-size: 16px;
   	font-weight: bold;
   	color: #4a3f35;
@@ -33,15 +39,19 @@
     margin-bottom: 0px;
 }
 
-.author {
+.BookCard .author {
   font-size: 13px;
   color: #7e6d61;
   margin-top: 4px;
   text-align: right;
-  margin: 0;
+  margin: 10px 0;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.paragraph {
+.BookCard .comment {
 	margin: 10px 0 0 0;
     height: 40px;
     font-size: 15px;
@@ -49,8 +59,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.writeDay {
+.BookCard .writeDay {
 	font-size: 10px;
 	text-align: right;
 	margin: 0;
+	color: var(--sub-color2);
 }
+

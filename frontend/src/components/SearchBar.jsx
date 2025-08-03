@@ -48,7 +48,7 @@ export default function SearchBar({ booksData, searchHandle }) {
         >
           <option value="title">책 제목</option>
           <option value="author">저자</option>
-          <option value="paragraph">키워드</option>
+          <option value="comment">코멘트</option>
         </select>
 
         <input

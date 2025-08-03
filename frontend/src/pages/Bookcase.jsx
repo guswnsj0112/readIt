@@ -3,17 +3,24 @@ import { fetchLocalStorageBooks } from "../util/localStorage";
 import {addDummies} from "../util/localStorage";
 import "../components/Bookcase.css";
 
-import Nav from "../components/nav";
+import Nav from "../components/Nav";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
 
 export default function Bookcase() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(null);
   const [searchResult, setSearchResult] = useState([]);
   const [bookHere, setBookHere] = useState(true);
   useEffect(() => {
-    addDummies();
-    const initialBooks = fetchLocalStorageBooks();
+    let initialBooks = '';
+	if(!localStorage.getItem('books')){
+		console.log('없음');
+		initialBooks = fetchLocalStorageBooks()
+		addDummies();
+	} else{
+		console.log('있다');
+		initialBooks = JSON.parse(localStorage.getItem('books'));
+	}
     setBooks(initialBooks);
     setSearchResult(initialBooks); // 초기에는 전체 책을 보여주도록 설정
   }, []);
