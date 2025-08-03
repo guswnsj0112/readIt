@@ -1,7 +1,34 @@
-import Nav from "../components/nav.jsx";
+import Nav from "../components/Nav.jsx";
 import main_image from "../images/main_image.png";
-import FetchBookAPI from "../components/FetchBookAPI.jsx";
+import BookCard from "../components/BookCard";
+import {useState, useEffect} from 'react';
+
 export default function Home() {
+  const [books, setBooks] = useState(null);
+  const [quote, setQuote] = useState({
+    comment: "경쟁하지 말고 독점하라",
+    title: "ZERO to ONE",
+    writeDay: "책을 등록해보세요"
+  });
+  useEffect(() => {
+    const stored = localStorage.getItem('books');
+    if (stored) {
+      const parsedBooks = JSON.parse(stored);
+      setBooks(parsedBooks);
+
+      // 랜덤 인용구 뽑기
+      if (parsedBooks.length > 0) {
+        const randomIdx = Math.floor(Math.random() * parsedBooks.length);
+        const picked = parsedBooks[randomIdx];
+        setQuote({
+          comment: picked.comment,
+          title: picked.title,
+          writeDay: picked.writeDay,
+        });
+      }
+    }
+  }, []);
+  
   return (
     <div className="Home">
       <Nav />
@@ -14,8 +41,8 @@ export default function Home() {
         <img src={main_image} alt="메인 이미지" className="mainImage" />
         <div className="quote">
           <blockquote>
-            <p>경쟁하지 말고 독점하라</p>
-            <cite>– ZERO to ONE / 2025년 06월</cite>
+            <p>{quote.comment}</p>
+            <cite>– {quote.title} / {quote.writeDay}</cite>
           </blockquote>
         </div>
         <div className="introduction">
@@ -37,7 +64,14 @@ export default function Home() {
         </div>
         <h3>최근 읽은 책들</h3>
         <p>감성 한줄평으로 보는 나의 서재</p>
-        <FetchBookAPI />
+		{books ? <div className="book_list">
+					<BookCard book_data={books[0]}/>
+					<BookCard book_data={books[1]}/>
+					<BookCard book_data={books[2]}/>
+				</div>
+		  		: 
+		  		<div>아직 책이 없네요 ㅠ</div>
+		}
         <div className="bottom">
           <div className="container">
             <h2>지금, 감동을 기록하세요.</h2>
