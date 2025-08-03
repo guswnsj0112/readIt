@@ -2,30 +2,14 @@ import Nav from "../components/Nav.jsx";
 import main_image from "../images/main_image.png";
 import BookCard from "../components/BookCard";
 import {useState, useEffect} from 'react';
-
+import QuoteConontainer from "../components/QuoteConontainer";
 export default function Home() {
   const [books, setBooks] = useState(null);
-  const [quote, setQuote] = useState({
-    comment: "경쟁하지 말고 독점하라",
-    title: "ZERO to ONE",
-    writeDay: "책을 등록해보세요"
-  });
   useEffect(() => {
     const stored = localStorage.getItem('books');
     if (stored) {
       const parsedBooks = JSON.parse(stored);
       setBooks(parsedBooks);
-
-      // 랜덤 인용구 뽑기
-      if (parsedBooks.length > 0) {
-        const randomIdx = Math.floor(Math.random() * parsedBooks.length);
-        const picked = parsedBooks[randomIdx];
-        setQuote({
-          comment: picked.comment,
-          title: picked.title,
-          writeDay: picked.writeDay,
-        });
-      }
     }
   }, []);
   
@@ -39,12 +23,7 @@ export default function Home() {
           <h3>나만의 독서 여정, 소중히 남기기.</h3>
         </div>
         <img src={main_image} alt="메인 이미지" className="mainImage" />
-        <div className="quote">
-          <blockquote>
-            <p>{quote.comment}</p>
-            <cite>– {quote.title} / {quote.writeDay}</cite>
-          </blockquote>
-        </div>
+        <QuoteConontainer parsedBooks ={books}/>
         <div className="introduction">
           <section>
             <div className="emoji">✍️</div>
@@ -70,7 +49,7 @@ export default function Home() {
 					<BookCard book_data={books[2]}/>
 				</div>
 		  		: 
-		  		<div>아직 책이 없네요 ㅠ</div>
+		  		<div>아직 책이 없어요</div>
 		}
         <div className="bottom">
           <div className="container">

@@ -62,50 +62,6 @@ h3 {
 	height: 600px;
 }
 
-.quote {
-  margin: 50px auto;
-}
-.quote blockquote {
-  position: relative;
-  border: 1px solid #a3c7db;
-  background: #FFFFFF;
-  padding: 20px;
-}
-.quote blockquote:before {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -24px;
-  background-color: #a3c7db;
-  color: #FFFFFF;
-  border: 2px solid #a3c7db;
-  box-sizing: border-box;
-  font-family: 'FontAwesome';
-  content: '\f10d';
-  line-height: 1;
-  padding-top: 12px;
-  text-align: center;
-  width: 48px;
-  height: 48px;
-  font-size: 20px;
-  border-radius: 24px;
-}
-.quote blockquote p {
-  color: #D8B08C;
-  font-size: 40px;
-  text-align: center;
-  background: #FFFFFF;
-}
-.quote blockquote cite {
-  display: block;
-  padding-top: 10px;
-  font-size: 0.8rem;
-  text-align: right;
-  color: #808080;
-  background: #FFFFFF;
-}
-
-
 .introduction {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
