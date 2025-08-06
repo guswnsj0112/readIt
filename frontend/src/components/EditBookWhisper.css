@@ -1,26 +1,28 @@
-.EditBookWhisper{
-	max-width: 1200px;
-	margin: 0 auto;
+.EditBookWhisper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.review label, .comment label {
-	display: block;
-	font-weight: 550;
+.review label,
+.comment label {
+  display: block;
+  font-weight: 550;
 }
 
 #reviewInput {
-	margin-bottom: 20px;
-	height: 300px;
-	resize: vertical;
+  margin-bottom: 20px;
+  height: 300px;
+  resize: vertical;
 }
-.review input ,.comment input {
-	margin-top: 5px;
-	color: var(--sub-color2);
-	width: 100%;
-	word-break: break-all;
+.review input,
+.comment input {
+  margin-top: 5px;
+  color: var(--sub-color2);
+  width: 100%;
+  word-break: break-all;
 }
 
 .EditBookWhisper .icon-buttons {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 textarea,
@@ -56,7 +58,6 @@ input[type="text"]:focus {
 /* 이미지 스타일 그대로 유지 */
 .changeImg img {
   transition: filter 0.3s ease;
-
 }
 
 /* 호버 시 이미지 어둡게 */
@@ -82,7 +83,7 @@ input[type="text"]:focus {
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1;
 }

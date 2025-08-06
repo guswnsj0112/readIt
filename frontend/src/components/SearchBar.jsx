@@ -4,20 +4,20 @@ import "./SearchBar.css";
 export default function SearchBar({ booksData, searchHandle }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("title"); // 기본값 'title'
-	
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // 검색어가 비어있을 경우, 전체 목록을 보여주도록 처리
     if (!searchQuery) {
       searchHandle([], "");
       return;
     }
-    // 1글자 검색 시 오류 
-	if (searchQuery.length <= 1){
-		alert('2글자 이상 검색하세요');
-		return;
-	}
+    // 1글자 검색 시 오류
+    if (searchQuery.length <= 1) {
+      alert("2글자 이상 검색하세요");
+      return;
+    }
     // filter를 사용해 booksData를 필터링
     const newBook = booksData.filter((book) => {
       const bookValue = book[filter] ? String(book[filter]).toLowerCase() : "";
@@ -34,7 +34,6 @@ export default function SearchBar({ booksData, searchHandle }) {
     // 실시간 검색을 원한다면, 여기에 handleSubmit 로직을 넣거나
     // debounce 같은 기술을 적용할 수 있습니다.
   };
-
 
   return (
     <form className="SearchBar" onSubmit={(e) => handleSubmit(e)}>
