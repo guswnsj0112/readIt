@@ -39,7 +39,7 @@ const server = createServer((req, res) => {
     const naverApiOptions = {
       hostname: "openapi.naver.com",
       port: 443,
-      path: encodeURI(`/v1/search/book.json?query=${query}`),
+      path: encodeURI(`/v1/search/book.json?query=${query}&display=4`),
       method: "GET",
       headers: {
         "X-Naver-Client-Id": NAVER_CLIENT_ID,

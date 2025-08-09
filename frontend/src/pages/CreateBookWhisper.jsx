@@ -6,16 +6,16 @@ import "../components/EditBookWhisper.css";
 
 import Nav from "../components/Nav";
 import fetchToday from "../util/fetchToday";
-import Modal from "../components/Modal";
 
 export default function EditBookWhisper() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
+  const [bookTitle, setBookTitle] = useState("");
+  const [bookAuthor, setBookAuthor] = useState("");
   const [bookImg, setBookImg] = useState("");
   const [bookReview, setBookReview] = useState("");
   const [bookComment, setBookComment] = useState("");
-  const [bookToday, setBookToday] = useState("");
-  const [open, setOpen] = useState(false);
+  const [bookToday, setBookToday] = useState(fetchToday());
   const navigate = useNavigate(); // 수정 후 다시 원래 페이지로
 
   useEffect(() => {
@@ -49,8 +49,8 @@ export default function EditBookWhisper() {
     if (!confirmDelete) return;
     const storedBooks = localStorage.getItem("books");
     const booksArray = JSON.parse(storedBooks);
+    const foundBook = booksArray.find((item) => item.id === id);
     const BookIdx = booksArray.findIndex((item) => item.id === id);
-    setBookToday(fetchToday);
     const updateBook = {
       id: id,
       title: book.title,
@@ -82,12 +82,9 @@ export default function EditBookWhisper() {
               alt={bookImg ? book.title : "책 사진이 없어요"}
               onError={(e) => (e.currentTarget.src = "/images/noBookImg.png")}
             />
-            <button className="addBtn" onClick={() => setOpen(true)}>
-              {" "}
-              +{" "}
-            </button>
+            <button className="addBtn"> + </button>
           </div>
-          <Modal isOpen={open} onClose={() => setOpen(false)}></Modal>
+
           <div className="BookWhisper-bottom">
             <div className="review">
               <label htmlFor="reviewInput">독서 후기</label>

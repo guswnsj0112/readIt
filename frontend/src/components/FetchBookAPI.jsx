@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./FetchBookAPI.css";
 
 export default function FetchBookAPI() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +19,7 @@ export default function FetchBookAPI() {
       const response = await fetch(
         `https://readit-backend-u789.onrender.com/api/search-books?query=${encodeURIComponent(
           searchTerm
-        )}`
+        )}&display=4`
       );
 
       if (!response.ok) {
@@ -37,8 +38,8 @@ export default function FetchBookAPI() {
   };
 
   return (
-    <div>
-      <h1>Naver Book Search</h1>
+    <div className="FetchBookAPI">
+      <h1>Naver Book Image Search</h1>
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -46,9 +47,6 @@ export default function FetchBookAPI() {
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for books..."
         />
-        <button type="submit" disabled={loading}>
-          {loading ? "Searching..." : "Search"}
-        </button>
       </form>
 
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
