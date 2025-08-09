@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FetchBookAPI.css";
 
-export default function FetchBookAPI() {
+export default function FetchBookAPI({ imgChangeFn }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -68,11 +68,9 @@ export default function FetchBookAPI() {
                     style={{ maxWidth: "100px" }}
                   />
                 )}
-                <p>
-                  <a href={book.link} target="_blank" rel="noopener noreferrer">
-                    View Details
-                  </a>
-                </p>
+                <button onClick={() => imgChangeFn(book.image)}>
+                  적용하기
+                </button>
               </li>
             ))}
           </ul>

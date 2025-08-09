@@ -1,6 +1,14 @@
 .FetchBookAPI ul {
   display: flex;
+  list-style-type: none;
 }
+
+.FetchBookAPI li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .FetchBookAPI h3 {
   font-size: 14px;
 }

@@ -42,6 +42,9 @@ export default function EditBookWhisper() {
   const handleCommentChange = (e) => {
     setBookComment(e.target.value);
   };
+  const handleModal = (img) => {
+    setBookImg(img);
+  };
   const EditBook = () => {
     const confirmDelete = window.confirm(
       "작성일은 오늘로 변경됩니다. 수정하시겠습니까?"
@@ -87,7 +90,11 @@ export default function EditBookWhisper() {
               +{" "}
             </button>
           </div>
-          <Modal isOpen={open} onClose={() => setOpen(false)}></Modal>
+          <Modal
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            imgChangeFn={handleModal}
+          ></Modal>
           <div className="BookWhisper-bottom">
             <div className="review">
               <label htmlFor="reviewInput">독서 후기</label>
