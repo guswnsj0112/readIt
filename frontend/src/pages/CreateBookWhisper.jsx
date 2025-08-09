@@ -1,40 +1,43 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import "../components/BookWhisper.css";
 import "../components/EditBookWhisper.css";
-
+import "../components/CreateBookWhisper.css";
 import Nav from "../components/Nav";
 import fetchToday from "../util/fetchToday";
+import Modal from "../components/Modal";
 
+const bookFormat = {
+  id: 0,
+  title: "",
+  author: "",
+  img_src: "",
+  review: "",
+  comment: "",
+  writeDay: "",
+};
 export default function EditBookWhisper() {
-  const { id } = useParams();
-  const [book, setBook] = useState(null);
+  const [book, setBook] = useState(bookFormat);
   const [bookTitle, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
   const [bookImg, setBookImg] = useState("");
   const [bookReview, setBookReview] = useState("");
   const [bookComment, setBookComment] = useState("");
-  const [bookToday, setBookToday] = useState(fetchToday());
-  const navigate = useNavigate(); // 수정 후 다시 원래 페이지로
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  // 제목 변경 함수
+  const handleTitleChange = (e) => {
+    setBookTitle(e.target.value);
+  };
 
-  useEffect(() => {
-    const storedBooks = localStorage.getItem("books");
+  // 저자 변경 함수
+  const handleAuthorChange = (e) => {
+    setBookAuthor(e.target.value);
+  };
 
-    if (storedBooks) {
-      const booksArray = JSON.parse(storedBooks);
-      const foundBook = booksArray.find((item) => item.id === id);
-
-      // 이미지가 없으면 기본 이미지로 대체
-      if (foundBook) {
-        setBook(foundBook);
-        setBookImg(foundBook.img_src);
-        setBookReview(foundBook.review);
-        setBookComment(foundBook.comment);
-      }
-    }
-  }, [id]);
-
+  const today = fetchToday();
   const handleReviewChange = (e) => {
     setBookReview(e.target.value);
   };
@@ -42,80 +45,99 @@ export default function EditBookWhisper() {
   const handleCommentChange = (e) => {
     setBookComment(e.target.value);
   };
+  const handleModal = (img) => {
+    setBookImg(img);
+  };
   const EditBook = () => {
-    const confirmDelete = window.confirm(
-      "작성일은 오늘로 변경됩니다. 수정하시겠습니까?"
-    );
+    const confirmDelete = window.confirm("기록한거 저장하기");
     if (!confirmDelete) return;
     const storedBooks = localStorage.getItem("books");
     const booksArray = JSON.parse(storedBooks);
-    const foundBook = booksArray.find((item) => item.id === id);
-    const BookIdx = booksArray.findIndex((item) => item.id === id);
     const updateBook = {
-      id: id,
-      title: book.title,
-      author: book.author,
+      id: uuidv4(),
+      title: bookTitle,
+      author: bookAuthor,
       img_src: bookImg,
       review: bookReview,
       comment: bookComment,
-      writeDay: bookToday,
+      writeDay: today,
     };
-    const newBooksArray = [...booksArray];
-    newBooksArray[BookIdx] = updateBook;
+    setBook(updateBook);
+    const newBooksArray = [updateBook, ...booksArray];
     localStorage.setItem("books", JSON.stringify(newBooksArray));
     navigate(-1);
-    console.log(book);
   };
 
   return (
     <div className="EditBookWhisper">
       <Nav />
-      {book ? (
-        <div className="bookDetail">
-          <div className="top">
-            <h1>{book.title}</h1>
-            <p>- {book.author}</p>
-          </div>
-          <div className="changeImg">
-            <img
-              src={bookImg ? bookImg : "/images/noBookImg.png"}
-              alt={bookImg ? book.title : "책 사진이 없어요"}
-              onError={(e) => (e.currentTarget.src = "/images/noBookImg.png")}
-            />
-            <button className="addBtn"> + </button>
-          </div>
+      <div className="bookDetail">
+        <div className="top">
+          <label htmlFor="titleInput">책 제목</label>
+          <input
+            type="text"
+            id="titleInput"
+            name="titleInput"
+            value={bookTitle}
+            onChange={handleTitleChange}
+            placeholder="책 제목을 입력하세요"
+          />
 
-          <div className="BookWhisper-bottom">
-            <div className="review">
-              <label htmlFor="reviewInput">독서 후기</label>
-              <textarea
-                row={5}
-                value={bookReview}
-                id="reviewInput"
-                name="reviewInput"
-                onChange={handleReviewChange}
-              />
-            </div>
-            <div className="comment">
-              <label htmlFor="commentInput">책에 대한 한줄 코멘트</label>
-              <input
-                type="text"
-                value={bookComment}
-                id="commentInput"
-                name="commentInput"
-                onChange={handleCommentChange}
-              />
-            </div>
-            <div className="icon-buttons">
-              <button onClick={EditBook}>✅</button>
-              <button onClick={() => navigate(-1)}>취소하기</button>
-            </div>
-            <p className="writeDay">수정일: {fetchToday()}</p>
-          </div>
+          {/* 저자 입력창 */}
+          <label htmlFor="authorInput">저자</label>
+          <input
+            type="text"
+            id="authorInput"
+            name="authorInput"
+            value={bookAuthor}
+            onChange={handleAuthorChange}
+            placeholder="저자를 입력하세요"
+          />
         </div>
-      ) : (
-        <p>책을 찾을 수 없습니다.</p>
-      )}
+        <div className="changeImg">
+          <img
+            src={bookImg ? bookImg : "/images/noBookImg.png"}
+            alt={bookImg ? book.title : "책 사진이 없어요"}
+            onError={(e) => (e.currentTarget.src = "/images/noBookImg.png")}
+          />
+          <button className="addBtn" onClick={() => setOpen(true)}>
+            {" "}
+            +{" "}
+          </button>
+        </div>
+        <Modal
+          isOpen={open}
+          onClose={() => setOpen(false)}
+          imgChangeFn={handleModal}
+        ></Modal>
+        <div className="BookWhisper-bottom">
+          <div className="review">
+            <label htmlFor="reviewInput">독서 후기</label>
+            <textarea
+              row={5}
+              value={bookReview}
+              id="reviewInput"
+              name="reviewInput"
+              onChange={handleReviewChange}
+            />
+          </div>
+          <div className="comment">
+            <label htmlFor="commentInput">책에 대한 한줄 코멘트</label>
+            <input
+              type="text"
+              value={bookComment}
+              id="commentInput"
+              name="commentInput"
+              onChange={handleCommentChange}
+            />
+          </div>
+          <div className="icon-buttons">
+            <button onClick={EditBook}>✅</button>
+            <button onClick={() => navigate(-1)}>취소하기</button>
+          </div>
+          <p className="writeDay">수정일: {today}</p>
+        </div>
+      </div>
     </div>
   );
 }

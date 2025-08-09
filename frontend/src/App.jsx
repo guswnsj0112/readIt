@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Bookcase from "./pages/Bookcase";
 import BookWhisper from "./pages/BookWhisper";
 import EditBookWhisper from "./pages/EditBookWhisper";
-
+import CreateBookWhisper from "./pages/CreateBookWhisper";
 import "./App.css";
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/bookcase" element={<Bookcase />} />
         <Route path="/bookwhisper/:id" element={<BookWhisper />} />
         <Route path="/editbookwhisper/:id" element={<EditBookWhisper />} />
+        <Route path="/createbookwhisper" element={<CreateBookWhisper />} />
       </Routes>
     </div>
   );

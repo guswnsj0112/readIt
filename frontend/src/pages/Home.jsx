@@ -2,6 +2,7 @@ import Nav from "../components/Nav.jsx";
 import main_image from "../images/main_image.png";
 import BookCard from "../components/BookCard";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import QuoteConontainer from "../components/QuoteConontainer";
 export default function Home() {
   const [books, setBooks] = useState(null);
@@ -56,7 +57,9 @@ export default function Home() {
           <div className="container">
             <h2>지금, 감동을 기록하세요.</h2>
             <p>책의 여운, 감성 그대로 남기기.</p>
-            <div className="btn">👉 책과 나의 순간, 기록하기</div>
+            <Link to="/createbookwhisper" className="btn">
+              👉 책과 나의 순간, 기록하기
+            </Link>
           </div>
         </div>
       </main>

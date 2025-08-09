@@ -5,8 +5,10 @@ export default function Modal({ isOpen, onClose, imgChangeFn }) {
   return (
     <div onClick={onClose} className="modal-overlay">
       <div onClick={(e) => e.stopPropagation()} className="modal">
-        <button onClick={onClose} className="modal-close"></button>
-        <FetchBookAPI imgChangeFn={imgChangeFn} />
+        <button onClick={onClose} className="modal-close">
+          ❌
+        </button>
+        <FetchBookAPI imgChangeFn={imgChangeFn} onClose={onClose} />
       </div>
     </div>
   );

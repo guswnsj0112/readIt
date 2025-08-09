@@ -14,7 +14,6 @@ export default function EditBookWhisper() {
   const [bookImg, setBookImg] = useState("");
   const [bookReview, setBookReview] = useState("");
   const [bookComment, setBookComment] = useState("");
-  const [bookToday, setBookToday] = useState("");
   const [open, setOpen] = useState(false);
   const navigate = useNavigate(); // 수정 후 다시 원래 페이지로
 
@@ -34,7 +33,7 @@ export default function EditBookWhisper() {
       }
     }
   }, [id]);
-
+  const today = fetchToday();
   const handleReviewChange = (e) => {
     setBookReview(e.target.value);
   };
@@ -53,7 +52,6 @@ export default function EditBookWhisper() {
     const storedBooks = localStorage.getItem("books");
     const booksArray = JSON.parse(storedBooks);
     const BookIdx = booksArray.findIndex((item) => item.id === id);
-    setBookToday(fetchToday);
     const updateBook = {
       id: id,
       title: book.title,
@@ -61,13 +59,12 @@ export default function EditBookWhisper() {
       img_src: bookImg,
       review: bookReview,
       comment: bookComment,
-      writeDay: bookToday,
+      writeDay: today,
     };
     const newBooksArray = [...booksArray];
     newBooksArray[BookIdx] = updateBook;
     localStorage.setItem("books", JSON.stringify(newBooksArray));
     navigate(-1);
-    console.log(book);
   };
 
   return (
@@ -120,7 +117,7 @@ export default function EditBookWhisper() {
               <button onClick={EditBook}>✅</button>
               <button onClick={() => navigate(-1)}>취소하기</button>
             </div>
-            <p className="writeDay">수정일: {fetchToday()}</p>
+            <p className="writeDay">수정일: {today}</p>
           </div>
         </div>
       ) : (

@@ -20,3 +20,20 @@
   max-height: 600px;
   object-fit: cover;
 }
+
+.searchSection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.record {
+  display: block; /* 한 줄 차지 */
+  margin-left: auto; /* 오른쪽으로 붙이기 */
+  margin-right: 24px; /* 오른쪽 여백 */
+  background-color: #ff6b6b;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}

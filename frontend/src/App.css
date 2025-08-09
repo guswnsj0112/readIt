@@ -1,8 +1,8 @@
 :root {
-	--main-bg-color: #FDF6EC;
-	--main-font-color: #4A3F35;
-	--sub-color1: #999999;
-	--sub-color2: #777777;
+  --main-bg-color: #fdf6ec;
+  --main-font-color: #4a3f35;
+  --sub-color1: #999999;
+  --sub-color2: #777777;
 }
 
 .sr-only {
@@ -21,7 +21,7 @@ body {
   color: var(--main-font-color);
   margin: 0;
   padding: 0;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
 
 * {
@@ -40,26 +40,26 @@ main {
 }
 
 .slogan {
-	margin-right: auto;
-	margin-left: 20px;
+  margin-right: auto;
+  margin-left: 20px;
 }
 h2 {
-	font-size: 40px;
-	font-weight: 700;
-	margin: auto;
+  font-size: 40px;
+  font-weight: 700;
+  margin: auto;
 }
 
 h3 {
-	font-size: 40px;
-	font-weight: 700;
-	color: var(--sub-color1);
-	margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--sub-color1);
+  margin: 0;
 }
 
-.mainImage{
-	margin-top: 20px;
-	width: 700px;
-	height: 600px;
+.mainImage {
+  margin-top: 20px;
+  width: 700px;
+  height: 600px;
 }
 
 .introduction {
@@ -71,7 +71,7 @@ h3 {
 }
 
 .introduction section {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -86,7 +86,7 @@ h3 {
 .emoji {
   font-size: 36px;
   margin-bottom: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .introduction > section > h4 {
@@ -94,62 +94,61 @@ h3 {
   font-size: 20px;
   margin-bottom: 8px;
   color: var(--main-font-color);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .introduction > section > p {
   font-size: 16px;
   line-height: 1.5;
-  color: #7E6D61;
-  background-color: #FFFFFF;
+  color: #7e6d61;
+  background-color: #ffffff;
 }
 
-.book_list{
-	display:flex;
-	gap: 20px;
+.book_list {
+  display: flex;
+  gap: 20px;
 }
 
-
-.bottom{
-	margin-top: 100px;
-    border-top: 1px solid var(--sub-color1);
-    width: 80%;
+.bottom {
+  margin-top: 100px;
+  border-top: 1px solid var(--sub-color1);
+  width: 80%;
 }
 
 .bottom > p {
-	    margin-top: 0px;
-		margin-bottom: 20px;
-		font-size: 22px;
-		font-weight: 500;
-		color: var(--sub-color1);
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--sub-color1);
 }
-.bottom > .container > .btn {
-	background-color: #fcefe9;
- 	color: #5a4231;
- 	font-size: 16px;
- 	font-family: "Nanum Myeongjo", serif;
- 	padding: 12px 24px;
- 	border: none;
- 	border-radius: 24px;
- 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
- 	transition: 0.3s ease-in-out;
+.bottom > .container > a.btn {
+  background-color: #fcefe9;
+  color: #5a4231;
+  font-size: 16px;
+  font-family: "Nanum Myeongjo", serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-in-out;
 }
 
-.bottom > .container > .btn:hover{
-	background-color: #f5e1d5;
+.bottom > .container > a.btn:hover {
+  background-color: #f5e1d5;
   transform: translateY(-2px);
 }
 
-.bottom > .container{
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.bottom > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 footer > p {
-	text-align: center; 
-	font-size: 13px; 
-	color: #999; 
-	margin: 4rem 0 2rem;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  margin: 4rem 0 2rem;
 }

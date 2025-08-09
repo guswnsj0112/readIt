@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { fetchLocalStorageBooks } from "../util/localStorage";
+import { Link } from "react-router-dom";
+
 import { addDummies } from "../util/localStorage";
+
 import "../components/Bookcase.css";
 
 import Nav from "../components/Nav";
@@ -10,15 +13,12 @@ import BookCard from "../components/BookCard";
 export default function Bookcase() {
   const [books, setBooks] = useState(null);
   const [searchResult, setSearchResult] = useState([]);
-  const [bookHere, setBookHere] = useState(true);
   useEffect(() => {
     let initialBooks = "";
     if (!localStorage.getItem("books")) {
-      console.log("없음");
       initialBooks = fetchLocalStorageBooks();
       addDummies();
     } else {
-      console.log("있다");
       initialBooks = JSON.parse(localStorage.getItem("books"));
     }
     setBooks(initialBooks);
@@ -38,7 +38,12 @@ export default function Bookcase() {
     <div className="Bookcase">
       <Nav />
       <h1 className="sr-only">읽잇 ReadIt - 내 책장</h1>
-      <SearchBar booksData={books} searchHandle={searchFunction} />
+      <div className="searchSection">
+        <SearchBar booksData={books} searchHandle={searchFunction} />
+        <Link to="/createbookwhisper " className="buttonSection">
+          <button className="record">기록하기</button>
+        </Link>
+      </div>
       {searchResult.length > 0 ? (
         <div className="BookGrid">
           {searchResult.map((book) => (
