@@ -18,7 +18,7 @@ const bookFormat = {
   comment: "",
   writeDay: "",
 };
-export default function EditBookWhisper() {
+export default function CreateBookWhisper() {
   const [book, setBook] = useState(bookFormat);
   const [bookTitle, setBookTitle] = useState("");
   const [bookAuthor, setBookAuthor] = useState("");
@@ -48,10 +48,13 @@ export default function EditBookWhisper() {
   const handleModal = (img) => {
     setBookImg(img);
   };
-  const EditBook = () => {
-    const confirmDelete = window.confirm("기록한거 저장하기");
+  const CreateBook = () => {
+    const confirmDelete = window.confirm("저장하기");
     if (!confirmDelete) return;
     const storedBooks = localStorage.getItem("books");
+    if (!storedBooks) {
+      localStorage.setItem("books", JSON.stringify([]));
+    }
     const booksArray = JSON.parse(storedBooks);
     const updateBook = {
       id: uuidv4(),
@@ -132,7 +135,7 @@ export default function EditBookWhisper() {
             />
           </div>
           <div className="icon-buttons">
-            <button onClick={EditBook}>✅</button>
+            <button onClick={CreateBook}>✅</button>
             <button onClick={() => navigate(-1)}>취소하기</button>
           </div>
           <p className="writeDay">작성일: {today}</p>

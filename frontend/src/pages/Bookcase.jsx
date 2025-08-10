@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { fetchLocalStorageBooks } from "../util/localStorage";
 import { Link } from "react-router-dom";
 
-import { addDummies } from "../util/localStorage";
-
 import "../components/Bookcase.css";
 
 import Nav from "../components/Nav";
@@ -23,7 +21,6 @@ export default function Bookcase() {
   useEffect(() => {
     let initialBooks = "";
     if (!localStorage.getItem("books")) {
-      addDummies(); // 더미 데이터 추가
       initialBooks = fetchLocalStorageBooks();
     } else {
       initialBooks = JSON.parse(localStorage.getItem("books"));

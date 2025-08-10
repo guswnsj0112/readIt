@@ -46,9 +46,15 @@ export default function Home() {
         <p>감성 한줄평으로 보는 나의 서재</p>
         {books ? (
           <div className="book_list">
-            <BookCard book_data={books[0]} />
-            <BookCard book_data={books[1]} />
-            <BookCard book_data={books[2]} />
+            {books.length > 3 ? (
+              <>
+                <BookCard book_data={books[0]} />
+                <BookCard book_data={books[1]} />
+                <BookCard book_data={books[2]} />
+              </>
+            ) : (
+              books.map((book) => <BookCard book_data={book} key={book.id} />)
+            )}
           </div>
         ) : (
           <div>아직 책이 없어요</div>
