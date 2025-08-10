@@ -99,7 +99,7 @@ export default function FetchBookAPI({ imgChangeFn, onClose }) {
       </form>
 
       <div>
-        <h2>검색 결과:</h2>
+        <h2 style={{ marginTop: "15px" }}>검색 결과:</h2>
         {renderContent()}
       </div>
     </div>
