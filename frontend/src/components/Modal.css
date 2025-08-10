@@ -17,8 +17,6 @@
   box-shadow: inset;
   padding: 20px;
   position: relative;
-  width: 50%;
-  height: 50%;
 }
 .modal-close {
   position: absolute;
