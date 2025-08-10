@@ -46,6 +46,7 @@ export default function Contact() {
               불가능)
             </li>
             <li>로그인 기능 및 데이터베이스 저장</li>
+            <li>데이터베이스 기록을 사용하여 독서 습관 그래프 추가</li>
           </ul>
         </div>
 
