@@ -135,7 +135,7 @@ export default function EditBookWhisper() {
             <button onClick={EditBook}>✅</button>
             <button onClick={() => navigate(-1)}>취소하기</button>
           </div>
-          <p className="writeDay">수정일: {today}</p>
+          <p className="writeDay">작성일: {today}</p>
         </div>
       </div>
     </div>
