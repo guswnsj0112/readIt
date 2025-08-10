@@ -1,0 +1,74 @@
+/* Contact.css */
+
+/* 전체 레이아웃 */
+.Contact {
+  font-family: "Pretendard", sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* 컨텐츠 컨테이너 */
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* 제목 스타일 */
+.contact-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.contact-container h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* 섹션 공통 스타일 */
+.contact-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+
+.contact-section p,
+.contact-section ul {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #444;
+}
+
+.contact-section ul {
+  padding-left: 1.2rem;
+}
+
+.contact-section li {
+  list-style: disc;
+  margin-bottom: 0.4rem;
+}
+
+.contact-section a {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-section a:hover {
+  color: #005da0;
+  text-decoration: underline;
+}

@@ -25,10 +25,12 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <span>
-            {" "}
-            문의 <sup>03</sup>{" "}
-          </span>
+          <Link to="/contact">
+            <span>
+              {" "}
+              문의 <sup>03</sup>{" "}
+            </span>
+          </Link>
         </li>
       </ul>
     </nav>

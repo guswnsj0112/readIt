@@ -5,6 +5,7 @@ import Bookcase from "./pages/Bookcase";
 import BookWhisper from "./pages/BookWhisper";
 import EditBookWhisper from "./pages/EditBookWhisper";
 import CreateBookWhisper from "./pages/CreateBookWhisper";
+import Contact from "./pages/Contact";
 import "./App.css";
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/bookwhisper/:id" element={<BookWhisper />} />
         <Route path="/editbookwhisper/:id" element={<EditBookWhisper />} />
         <Route path="/createbookwhisper" element={<CreateBookWhisper />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
