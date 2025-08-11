@@ -1,7 +1,8 @@
 # 📚 ReadIt - 감성 독서 기록 웹서비스
 
 > 책과 감성의 순간, 나만의 독서 여정을 소중히 남기기 위해 만든 프로젝트
-<img width="599" height="771" alt="LandingPage" src="https://github.com/user-attachments/assets/cbc5256e-de03-4802-bfc4-43fa9179108d" />
+
+![2025-08-1118 48 23-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/09ccd988-260a-4e34-a571-6a77f3264d0e)
 
 -(https://readit-38t1.onrender.com/)
   
