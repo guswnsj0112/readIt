@@ -81,7 +81,6 @@ export default function CreateBookWhisper() {
   return (
     <div className="EditBookWhisper">
       <Nav />
-      {/* <form> 태그로 전체를 감싸고 onSubmit 이벤트를 추가 */}
       <form onSubmit={handleFormSubmit}>
         <div className="bookDetail">
           <div className="top">

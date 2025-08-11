@@ -85,21 +85,29 @@ export default function FetchBookAPI({ imgChangeFn, onClose }) {
       </ul>
     );
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      // Prevents the main form from submitting
+      e.preventDefault();
+      handleSearch(e);
+    }
+  };
 
   return (
     <div className="FetchBookAPI">
       <h1>Naver Book Image Search</h1>
-      <form onSubmit={handleSearch}>
+      <div onSubmit={handleSearch}>
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="책 제목을 입력하세요."
+          onKeyDown={handleKeyDown}
         />
-      </form>
+      </div>
 
       <div>
-        <h2 style={{ marginTop: "15px" }}>검색 결과:</h2>
+        <h2>검색 결과:</h2>
         {renderContent()}
       </div>
     </div>
