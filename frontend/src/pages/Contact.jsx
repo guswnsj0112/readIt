@@ -77,6 +77,16 @@ export default function Contact() {
                 Notion 페이지
               </a>
             </li>
+            <li>
+              읽잇 MVP Figma:{" "}
+              <a
+                href="https://www.figma.com/design/AnLqKMJhWCnoWmxwTJYg5y/%EC%9D%BD%EC%9E%87?node-id=0-1&t=OxWj5bTmKZuLEXsX-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Figma 페이지
+              </a>
+            </li>
           </ul>
         </div>
       </section>
