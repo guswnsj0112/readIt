@@ -7,12 +7,12 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
-    host: "0.0.0.0", // 서버는 컨테이너 내부에서 모든 인터페이스를 수신
+    host: "0.0.0.0",
     port: 3000,
     hmr: {
-      protocol: "wss", // 보안 웹소켓(HTTPS) 사용
-      host: "readit-aqvzs.run.goorm.io", // 브라우저가 접속할 공개 URL
-      clientPort: 443 // 브라우저가 연결할 포트 (HTTPS 기본 포트)
+      protocol: "wss",
+      host: "readit-alcvm.run.goorm.io",
+      clientPort: 443
     },
     proxy: {
       "/api": {
@@ -20,7 +20,11 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
-    allowedHosts: ["readit-aqvzs.run.goorm.io", "localhost", "127.0.0.1"],
+    allowedHosts: [
+      "*.goorm.io",
+      "localhost",
+      "127.0.0.1"
+    ],
     fs: {
       strict: false,
     },
