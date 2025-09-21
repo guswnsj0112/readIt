@@ -11,7 +11,7 @@ export default defineConfig({
     port: 3000,
     hmr: {
       protocol: "wss",
-      host: "readit-mawep.run.goorm.io",
+      host: "readit-jqtr.run.goorm.io",
       clientPort: 443
     },
     proxy: {
