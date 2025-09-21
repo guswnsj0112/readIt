@@ -11,7 +11,7 @@ export default defineConfig({
     port: 3000,
     hmr: {
       protocol: "wss",
-      host: "readit-jrklk.run.goorm.io",
+      host: "readit-cbmoe.run.goorm.io",
       clientPort: 443
     },
     proxy: {
@@ -21,7 +21,7 @@ export default defineConfig({
       },
     },
     allowedHosts: [
-      "*.goorm.io",
+     "*.goorm.io",
       "localhost",
       "127.0.0.1"
     ],
