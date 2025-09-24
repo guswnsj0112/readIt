@@ -12,7 +12,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="flex justify-between items-center max-w-[21.875rem] lg:max-w-[75.00rem] mt-2 m-auto py-0 px-2 lg:px-6 border-b border-gray-1">
+      <nav className="flex justify-between items-center max-w-[21.875rem] lg:max-w-[75.00rem] md:max-w-[48.125rem] mt-2 m-auto py-0 px-2 md:px-5 lg:px-6  border-b-2 border-gray-1">
         <Link to="/">
           <img src={nav_logo} alt="로고 사진" className="w-[150px] mb-[5px] lg:w-[200px] h-auto flex" />
         </Link>
