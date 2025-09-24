@@ -5,6 +5,7 @@
   --color-main-font: #4a3f35;
   --color-gray-1: #999999;
   --color-gray-2: #777777;
+  --color-white: #ffffff;
    /* 모든 중단점 제거 */
   --breakpoint-*: initial;
   /* PC 화면 (최대 1200px) */
@@ -26,76 +27,4 @@ body {
 
 * {
   @apply box-border;
-}
-
-main {
-  @apply lg:max-w-[75.00rem] my-0 m-auto py-0 px-6 flex flex-col items-center text-main-font;
-}
-
-.slogan {
-  @apply mr-auto ml-5;
-}
-
-h2 {
-  @apply text-[25px]  mb-1 lg:text-[2.50rem] leading-none font-bold m-auto;
-}
-
-h3 {
-  @apply text-[20px] lg:text-[2.50rem] leading-none font-bold text-gray-1 m-0;
-}
-
-.mainImage {
-  @apply w-[250px] lg:w-[43.75rem] mt-5  lg:h-[37.50rem];
-}
-
-.introduction {
-  @apply grid grid-cols-[repeat(3,_1fr)] gap-8 my-10 mx-0 py-0 px-5;
-}
-
-.introduction section {
-  @apply bg-[#ffffff] lg:rounded-2xl p-6 text-center;
-}
-
-.introduction section:hover {
-  @apply transform scale-105;
-}
-
-.emoji {
-  @apply text-4xl mb-4 bg-[#ffffff];
-}
-
-.introduction > section > h4 {
-  @apply font-bold text-xl mb-2 text-main-font bg-[#ffffff];
-}
-
-.introduction > section > p {
-  @apply text-base leading-normal text-[#7e6d61] bg-[#ffffff];
-}
-
-.book_list {
-  @apply flex gap-5;
-}
-
-.bottom {
-  @apply mt-24 w-4/5;
-}
-
-.bottom > p {
-  @apply mt-0 mb-5 lg:text-[1.38rem] leading-7 font-medium text-gray-1;
-}
-
-.bottom > .container > a.btn {
-  @apply bg-[#fcefe9] text-[#5a4231] text-base py-3 px-6 rounded-3xl;
-}
-
-.bottom > .container > a.btn:hover {
-  @apply bg-[#f5e1d5];
-}
-
-.bottom > .container {
-  @apply flex flex-col items-center text-center;
-}
-
-footer > p {
-  @apply text-center lg:text-[0.81rem] text-[#999] mt-16 mx-0 mb-8;
 }
