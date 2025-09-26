@@ -18,7 +18,7 @@ export default function Home() {
     <div className="Home">
       <Nav />
       <h1 className="sr-only">읽잇- 독서록 웹사이트</h1>
-      <main className="lg:max-w-[75.00rem] my-0 m-auto py-0 px-6 flex flex-col items-center text-main-fon">
+      <main className="lg:max-w-[75.00rem] md:max-w-[48.125rem] my-0 m-auto py-0 px-6 flex flex-col items-center text-main-fon">
         <div className="mr-auto mt-3 lg:mt-5">
           <h2 className="text-[25px] mb-1 lg:text-[2.50rem] leading-none font-bold m-auto">책과 감성의 순간.</h2>
           <h3 className="text-[20px] lg:text-[2.50rem] leading-none font-bold text-gray-1 m-0">나만의 독서 여정, 소중히 남기기.</h3>
