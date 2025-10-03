@@ -1,9 +1,12 @@
 import Nav from "../components/Nav.jsx";
 import main_image from "../images/main_image.png";
 import BookCard from "../components/BookCard";
-import { useState, useEffect } from "react";
+import SwiperCompent from "../components/SwiperCompent.jsx"
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import QuoteConontainer from "../components/QuoteConontainer";
+
+
 export default function Home() {
   const [books, setBooks] = useState(null);
   useEffect(() => {
@@ -46,13 +49,12 @@ export default function Home() {
         <p>감성 한줄평으로 보는 나의 서재</p>
         {books ? (
           <div className="flex gap-5">
-            {books.length > 3 ? (
-              <>
-                <BookCard book_data={books[0]} />
-                <BookCard book_data={books[1]} />
-                <BookCard book_data={books[2]} />
-              </>
-            ) : (
+            {books.length >= 3 ? (
+					  <>
+					  	<div className="hidden md:flex">{books.map((book) => <BookCard book_data={book} key={book.id} />)}</div>
+					  	<div className="md:hidden w-sm"><SwiperCompent bookcards = {books.slice(0, 3)}/> </div>
+					  </>
+        		) : (
               books.map((book) => <BookCard book_data={book} key={book.id} />)
 				)}
           </div>
@@ -64,6 +66,7 @@ export default function Home() {
       </p>
     </div>
         )}
+	<hr className="w-[100%]"/>
         <div className="mt-24 w-4/5">
           <div className="flex flex-col items-center text-center">
             <h2 className="text-[22px]  mb-1 lg:text-[2.50rem] leading-none font-bold m-auto">지금, 감동을 기록하세요.</h2>
@@ -78,5 +81,6 @@ export default function Home() {
         <p className="text-center text-xs md:text-[0.81rem] text-[#999] mt-16 mx-0 mb-8">© 2025 ReadIt. 책과 감성의 순간을 함께합니다.</p>
       </footer>
     </div>
+	 
   );
 }

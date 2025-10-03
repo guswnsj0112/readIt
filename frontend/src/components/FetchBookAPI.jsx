@@ -49,7 +49,7 @@ export default function FetchBookAPI({ imgChangeFn, onClose }) {
     }
     if (books.length === 0 && searchTerm.trim() !== "") {
       return (
-        <p>엔터를 눌러도 사진이 안 떴다면 제목을 다시 한번 확인해주세요.</p>
+        <p>제목을 다시 한번 확인해주세요.</p>
       );
     }
     if (books.length === 0 && searchTerm.trim() === "") {
