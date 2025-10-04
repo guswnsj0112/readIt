@@ -49,14 +49,10 @@ export default function Home() {
         <p>감성 한줄평으로 보는 나의 서재</p>
         {books ? (
           <div className="flex gap-5">
-            {books.length >= 2 ? (
 					  <>
-					  	<div className="hidden md:flex">{books.map((book) => <BookCard book_data={book} key={book.id} />)}</div>
+					  	<div className="hidden md:flex">{books.slice(0, 3).map((book) => <BookCard book_data={book} key={book.id} />)}</div>
 					  	<div className="md:hidden w-sm"><SwiperCompent bookcards = {books.slice(0, 3)}/> </div>
 					  </>
-        		) : (
-              books.map((book) => <BookCard book_data={book} key={book.id} />)
-				)}
           </div>
         ) : (
            <div className="flex-grow flex flex-col justify-center items-center py-10 px-6 text-center">
