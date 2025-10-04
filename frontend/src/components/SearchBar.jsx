@@ -48,7 +48,7 @@ export default function SearchBar({ booksData, searchHandle }) {
 
   return (
     // --- SearchBar 컨테이너 ---
-    <div className="w-full max-w-2xl mx-auto my-10 px-4">
+    <div className="w-full max-w-2xl mx-auto mt-5 md:my-10 md:px-4">
       <form onSubmit={handleSubmit} noValidate>
         {/* --- 검색 바 전체를 감싸는 컨테이너 --- */}
         {/* h-16: 높이 지정, shadow-lg: 더 진한 그림자, rounded-full: 완전한 둥근 모서리 */}
