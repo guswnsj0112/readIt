@@ -51,10 +51,10 @@ export default function BookWhisper() {
 
   return (
     // --- BookWhisper 스타일 ---
-    <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
+    <div className="mx-auto p-4 md:p-6 lg:p-8">
       <Nav />
       {/* --- bookDetail 스타일 --- */}
-      <div className="text-center">
+      <div className="text-center max-w-9/10 lg:max-w-[75.00rem] md:max-w-[48.125rem] mx-auto">
         {/* --- top 스타일 --- */}
         <div className="my-4">
           <h1 className="text-3xl lg:text-4xl font-bold text-main-font mb-2">{book.title}</h1>

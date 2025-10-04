@@ -54,7 +54,7 @@ export default function CreateBookWhisper() {
     <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-8">
       <Nav />
       <form onSubmit={handleFormSubmit}>
-        <div className="max-w-lg lg:max-w-xl mx-auto text-left space-y-6">
+        <div className="max-w-9/10 lg:max-w-[75.00rem] md:max-w-[48.125rem] mx-auto text-left space-y-6">
           {/* --- 책 제목 / 저자 입력 --- */}
           <div>
             <label htmlFor="title" className="block font-semibold text-lg text-main-font mb-2">책 제목</label>

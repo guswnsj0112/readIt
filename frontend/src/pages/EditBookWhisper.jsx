@@ -80,7 +80,7 @@ export default function EditBookWhisper() {
           </div>
 
           {/* --- 이미지 변경 영역 --- */}
-          <div className="group relative w-full max-w-lg lg:max-w-xl h-auto mx-auto my-6 rounded-lg overflow-hidden shadow-lg">
+          <div className="group relative max-w-9/10 lg:max-w-[75.00rem] md:max-w-[48.125rem] h-auto mx-auto my-6 rounded-lg overflow-hidden shadow-lg">
             <img
               src={bookImg}
               alt={book.title}
@@ -99,7 +99,7 @@ export default function EditBookWhisper() {
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} imgChangeFn={setBookImg} />
 
           {/* --- 수정 폼 영역 --- */}
-          <div className="max-w-lg lg:max-w-xl mx-auto text-left space-y-6">
+          <div className="max-w-9/10 lg:max-w-[75.00rem] md:max-w-[48.125rem] mx-auto text-left space-y-6">
             <div>
               <label htmlFor="reviewInput" className="block font-semibold text-lg text-main-font mb-2">독서 후기</label>
               <textarea
