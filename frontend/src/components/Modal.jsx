@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import FetchBookAPI from "./FetchBookAPI";
+
 export default function Modal({ isOpen, onClose, imgChangeFn }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -18,24 +19,21 @@ export default function Modal({ isOpen, onClose, imgChangeFn }) {
 
   return (
     // --- 모달 오버레이 ---
-    // fixed inset-0: 전체 화면을 덮음, bg-opacity-75: 반투명 배경
-    // z-50: 다른 요소들 위에 표시, transition-opacity: 투명도 애니메이션
     <div 
       onClick={onClose} 
-      className={`fixed inset-0 bg-black flex justify-center items-center z-50 transition-opacity duration-300 ease-in-out ${showModal ? 'bg-opacity-75' : 'bg-opacity-0'}`}
+      className={`fixed inset-0 flex justify-center items-center z-50 transition-opacity duration-300 ease-in-out backdrop-blur-sm bg-black/60 ${showModal ? 'opacity-100' : 'opacity-0'}`}
     >
       {/* --- 모달 컨텐츠 --- */}
-      {/* scale, opacity 애니메이션 적용 */}
       <div 
         onClick={(e) => e.stopPropagation()} 
-        className={`bg-white rounded-xl shadow-2xl flex flex-col w-11/12 md:w-2/3 lg:max-w-3xl max-h-[90vh] transition-all duration-300 ease-in-out ${showModal ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
+        className={`bg-[#FFFBF5] rounded-xl shadow-2xl flex flex-col w-11/12 md:w-2/3 lg:max-w-3xl max-h-[90vh] transition-all duration-300 ease-in-out ${showModal ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
       >
-        {/* --- 모달 헤더 --- */}
-        <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-800">책 표지 검색</h2>
+        {/* --- 모달 헤더 (폰트 크기 조정) --- */}
+        <div className="flex justify-between items-center p-4 border-b border-amber-200/60">
+          <h2 className="text-2xl font-bold text-[#4a3f35]">책 표지 검색</h2>
           <button 
             onClick={onClose} 
-            className="p-1 rounded-full text-gray-400 hover:bg-gray-200 hover:text-gray-800 transition-colors"
+            className="p-1 rounded-full text-stone-400 hover:bg-amber-100 hover:text-amber-700 transition-colors"
             aria-label="Close modal"
           >
             <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -45,7 +43,6 @@ export default function Modal({ isOpen, onClose, imgChangeFn }) {
         </div>
 
         {/* --- 모달 바디 --- */}
-        {/* overflow-y-auto: 내용이 길어지면 스크롤 생성 */}
         <div className="p-6 overflow-y-auto">
           <FetchBookAPI imgChangeFn={imgChangeFn} onClose={onClose} />
         </div>
