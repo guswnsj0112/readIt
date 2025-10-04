@@ -83,21 +83,22 @@ export default function CreateBookWhisper() {
             />
           </div>
 
-          {/* --- 이미지 추가 영역 --- */}
-          <div className="group relative w-full h-auto mx-auto my-6 rounded-lg overflow-hidden shadow-lg bg-gray-100">
+          {/* --- 이미지 추가 영역 (호버 및 클릭 효과 적용) --- */}
+          <div 
+            className="relative group w-full max-w-md mx-auto my-6 cursor-pointer" 
+            onClick={() => setIsModalOpen(true)}
+          >
             <img
               src={bookData.img_src || "/images/noBookImg.png"}
               alt={bookData.title || "책 사진 없음"}
               onError={(e) => (e.currentTarget.src = "/images/noBookImg.png")}
-              className="w-full h-auto max-h-[500px] object-cover transition-all duration-300 group-hover:filter group-hover:brightness-60"
+              className="w-full h-auto object-cover rounded-lg shadow-lg transition-all duration-300"
             />
-            <button
-              type="button"
-              onClick={() => setIsModalOpen(true)}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/80 rounded-full text-4xl text-yellow-600 font-bold flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-yellow-600 hover:text-white hover:scale-105"
-            >
-              +
-            </button>
+            <div className="absolute inset-0 flex items-center justify-center bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 rounded-lg">
+              <div className="w-16 h-16 bg-white/80 rounded-full text-4xl text-yellow-600 font-bold flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100">
+                +
+              </div>
+            </div>
           </div>
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} imgChangeFn={(url) => setBookData(p => ({...p, img_src: url}))} />
 
